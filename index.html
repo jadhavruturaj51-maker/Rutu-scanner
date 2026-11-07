@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rutu Scanner</title>
+<style>
+:root{--bg:#0b1020;--panel:#141c30;--panel2:#1a2540;--text:#edf2ff;--muted:#93a1bd;--line:#293653;--green:#19c784;--red:#ff647c;--amber:#f5bd4f;--blue:#6ea8fe}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif}
+header{padding:20px 5%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+h1{margin:0;font-size:23px}small,.muted{color:var(--muted)}.tag{border:1px solid var(--line);border-radius:30px;padding:7px 12px;color:var(--muted);font-size:12px}
+main{max-width:1180px;margin:24px auto;padding:0 16px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}.metric{font-size:27px;font-weight:700;margin-top:8px}
+.section{margin-top:18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+h2{font-size:17px;margin:0 0 14px}.criteria{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.criterion{background:var(--panel2);border-radius:10px;padding:12px;display:flex;justify-content:space-between;gap:8px}
+.status{font-size:11px;border-radius:20px;padding:4px 8px;background:#3a3040;color:var(--amber);white-space:nowrap}
+button{background:var(--blue);border:0;color:#071326;font-weight:bold;padding:11px 16px;border-radius:9px;cursor:pointer}
+button.secondary{background:#263552;color:var(--text);border:1px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.notice{background:#30291a;border:1px solid #66512a;color:#f7d58a;padding:12px;border-radius:10px;line-height:1.5}
+table{width:100%;border-collapse:collapse;min-width:600px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:12px}
+.tablewrap{overflow-x:auto}.empty{text-align:center;color:var(--muted);padding:26px}
+footer{text-align:center;color:var(--muted);padding:24px;font-size:12px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.criteria{grid-template-columns:1fr}header{padding:16px}.metric{font-size:23px}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>📈 RUTU SCANNER</h1><small>Private Trading Dashboard · NSE F&O</small></div>
+  <span class="tag">PERSONAL USE · DEMO UI</span>
+</header>
+<main>
+  <div class="grid">
+    <div class="card"><small>Market</small><div class="metric">NSE</div></div>
+    <div class="card"><small>Scan time</small><div class="metric">09:50</div></div>
+    <div class="card"><small>Max stocks</small><div class="metric">03</div></div>
+    <div class="card"><small>Qualified</small><div class="metric" id="qualified">0</div></div>
+  </div>
+
+  <section class="section">
+    <h2>Scanner Criteria · 9 Active</h2>
+    <div class="criteria">
+      <div class="criterion"><span>1. Volume ≥ 2× average</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>2. Previous Week High / Low</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>3. Previous Day High / Low</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>4. 15m EMA 10 / 20</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>5. Sector Strength</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>6. OI Build-up</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>7. Opening Range Breakout</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>8. Gap below 3%</span><span class="status">NOT CONNECTED</span></div>
+      <div class="criterion"><span>9. Intraday move below 2.5%</span><span class="status">NOT CONNECTED</span></div>
+    </div>
+    <div class="actions">
+      <button onclick="alert('Live scanning is not connected yet. SmartAPI must be connected through a secure backend before this can return real signals.')">Run Scanner</button>
+      <button class="secondary" onclick="window.print()">Print Dashboard</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Top 3 Trading Candidates</h2>
+    <div class="notice">Live signals are disabled until the secure Angel One SmartAPI backend is connected. This page does not generate fake buy/sell calls. Do not enter API keys or passwords into this page.</div>
+    <div class="tablewrap">
+      <table><thead><tr><th>Stock</th><th>Signal</th><th>Score</th><th>Entry</th><th>Stop Loss</th><th>Target</th></tr></thead>
+      <tbody><tr><td colspan="6" class="empty">No verified live candidates yet.</td></tr></tbody></table>
+    </div>
+  </section>
+  <footer>Rutu Scanner · Private-use prototype · Secure API connection required for live data</footer>
+</main>
+</body></html>
